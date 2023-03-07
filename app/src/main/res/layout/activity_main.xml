@@ -134,6 +134,20 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/points_jaune" />
 
+    <TextView
+        android:layout_width="131dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:fontFamily="@font/nefelibata_brush_canvas"
+        android:text="PenPal"
+        android:textColor="@color/blue_green_title"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView6"
+        app:layout_constraintStart_toEndOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.523" />
+
     <ImageView
         android:id="@+id/imageView14"
         android:layout_width="111dp"
