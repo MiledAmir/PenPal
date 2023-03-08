@@ -12,6 +12,9 @@
         android:theme="@style/Theme.PenPal"
         tools:targetApi="31">
         <activity
+            android:name=".pagelogin"
+            android:exported="false" />
+        <activity
             android:name=".HomePenPal"
             android:exported="false" />
         <activity
