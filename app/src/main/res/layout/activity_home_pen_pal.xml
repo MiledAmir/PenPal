@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAF6F3"
-    tools:context=".MainActivity">
+    tools:context=".HomePenPal">
 
     <ImageView
         android:id="@+id/imageView3"
@@ -16,7 +15,7 @@
         app:layout_constraintHorizontal_bias="0.805"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.933"
+        app:layout_constraintVertical_bias="0.962"
         app:srcCompat="@drawable/cercle_jaune" />
 
     <ImageView
@@ -69,18 +68,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/gauche" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="187dp"
-        android:layout_height="162dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.071"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.451"
-        app:srcCompat="@drawable/logo" />
 
     <ImageView
         android:id="@+id/imageView12"
@@ -146,21 +133,6 @@
         app:layout_constraintVertical_bias="0.006"
         app:srcCompat="@drawable/points_jaune" />
 
-    <TextView
-        android:layout_width="131dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:fontFamily="@font/nefelibata_brush_canvas"
-        android:text="PenPal"
-        android:textColor="@color/blue_green_title"
-        android:textSize="45sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView6"
-        app:layout_constraintHorizontal_bias="0.434"
-        app:layout_constraintStart_toEndOf="@+id/imageView8"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.436" />
-
     <ImageView
         android:id="@+id/imageView14"
         android:layout_width="68dp"
@@ -195,4 +167,26 @@
         app:layout_constraintVertical_bias="0.222"
         app:srcCompat="@drawable/cerclerond" />
 
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="124dp"
+        android:layout_height="103dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.791"
+        app:srcCompat="@drawable/arrowright" />
+
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="174dp"
+        android:layout_height="164dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.226"
+        app:srcCompat="@drawable/hands" />
 </androidx.constraintlayout.widget.ConstraintLayout>
