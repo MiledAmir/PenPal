@@ -168,7 +168,7 @@
         app:srcCompat="@drawable/cerclerond" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/arrow"
         android:layout_width="124dp"
         android:layout_height="103dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -180,7 +180,7 @@
         app:srcCompat="@drawable/arrowright" />
 
     <ImageView
-        android:id="@+id/imageView18"
+        android:id="@+id/hands"
         android:layout_width="174dp"
         android:layout_height="164dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -189,4 +189,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.226"
         app:srcCompat="@drawable/hands" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
