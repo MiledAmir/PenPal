@@ -2,6 +2,10 @@
 <resources>
     <color name="title_clr">#41848d</color>
     <color name="bg_clr">#faf6f3</color>
+    <color name="text_clr">#545454</color>
+    <color name="btn_clr">#ffb879</color>
+    <color name="btn_pressed_clr"> #ff9c5b</color>
+    <color name="btn_border_clr">#603b28</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#D1EAED</color>
     <color name="purple_700">#9EB5B8</color>
@@ -9,5 +13,4 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="white_background">#FFFAF6F3</color>
 </resources>
