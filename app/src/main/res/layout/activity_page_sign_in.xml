@@ -37,7 +37,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/fullname"
         android:layout_width="312dp"
         android:layout_height="56dp"
         android:layout_marginTop="48dp"
@@ -70,6 +70,7 @@
         android:layout_height="56dp"
         android:layout_marginTop="8dp"
         android:background="@color/bg_clr"
+        android:inputType="textEmailAddress"
         android:hint="Email"
         android:paddingLeft="20dp"
         android:shadowColor="@color/white"
@@ -79,13 +80,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/fullname" />
 
     <EditText
         android:id="@+id/newpassword"
         android:layout_width="312dp"
         android:layout_height="56dp"
         android:background="@color/bg_clr"
+        android:inputType="textPassword"
         android:hint="Password"
         android:paddingLeft="20dp"
         android:shadowColor="@color/white"
@@ -106,13 +108,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/fullname" />
 
     <ImageView
         android:id="@+id/pwd_border"
         android:layout_width="312dp"
         android:layout_height="56dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/emailpwd2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -163,9 +165,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/google_connect"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
