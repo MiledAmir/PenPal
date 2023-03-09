@@ -1,8 +1,10 @@
 package com.example.penpal
 
+import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 
 class Pagelogin : AppCompatActivity() {
@@ -20,5 +22,9 @@ class Pagelogin : AppCompatActivity() {
 
 
 >>>>>>> 08e377ce185577c2fb96c8a78bc510bb510ff5e9
+
+        val sign_in_text = findViewById<TextView>(R.id.sign_in_text)
+        sign_in_text.paintFlags = sign_in_text.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+        sign_in_text.text="mon nouveau"
     }
 }
