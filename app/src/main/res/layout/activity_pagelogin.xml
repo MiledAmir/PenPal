@@ -4,54 +4,92 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_background"
+    android:background="@color/bg_clr"
     tools:context=".pagelogin">
 
     <ImageView
         android:id="@+id/imageView21"
         android:layout_width="182dp"
         android:layout_height="144dp"
+        android:layout_marginTop="16dp"
         android:rotationY="-182"
         android:src="@drawable/page2asset1"
-        tools:layout_editor_absoluteX="229dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView20"
         android:layout_width="182dp"
         android:layout_height="144dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/page2asset1"
-        tools:layout_editor_absoluteX="-12dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="159dp"
         android:layout_height="141dp"
+        android:layout_marginTop="100dp"
         android:src="@drawable/profile"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="106dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="293dp"
-        android:layout_height="50dp"
-        android:background="@color/white_background"
-        android:hint="Your Address Email"
+        android:layout_width="312dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="48dp"
+        android:background="@color/bg_clr"
+        android:hint="Enter your email adress"
+        android:paddingLeft="20dp"
         android:shadowColor="@color/white"
         android:singleLine="false"
-
         android:textSize="19sp"
-        tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="329dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <ImageView
         android:id="@+id/imageView23"
         android:layout_width="312dp"
         android:layout_height="56dp"
+        android:layout_marginTop="48dp"
         android:src="@drawable/emailpwd2"
-        tools:layout_editor_absoluteX="49dp"
-        tools:layout_editor_absoluteY="326dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="312dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/bg_clr"
+        android:hint="Enter your password"
+        android:paddingLeft="20dp"
+        android:shadowColor="@color/white"
+        android:singleLine="false"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
+
+    <ImageView
+        android:id="@+id/imageView23"
+        android:layout_width="312dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/emailpwd2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
