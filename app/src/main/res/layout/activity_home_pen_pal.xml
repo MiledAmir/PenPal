@@ -172,6 +172,8 @@
         android:id="@+id/arrow"
         android:layout_width="124dp"
         android:layout_height="103dp"
+        android:clickable="true"
+        android:onClick="navigateToLogin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
