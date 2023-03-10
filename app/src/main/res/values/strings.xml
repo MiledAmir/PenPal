@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">PenPal</string>
-    <string name="btn_signIn">You don't have an account? <u>Sign in</u></string>
-    <string name="btn_LogIn">Already have an account ? <u>Log in</u></string>
+    <string name="btn_signIn">You don't have an account? <u>Sign up</u></string>
+    <string name="btn_LogIn">Already have an account ? <u>Sign in</u></string>
 </resources>
