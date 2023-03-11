@@ -11,11 +11,12 @@ class HomePenPal : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_pen_pal)
-    }
+
         val arrow = findViewById<ImageView>(R.id.arrow)
-        @JvmOverloads
-        fun navigateToLogin(view: View? =null) {
-                val intent =Intent(this, Pagelogin::class.java)
-            startActivity(intent)
-            }
+
+      arrow.setOnClickListener{
+          Intent(this,Pagelogin::class.java).also{
+              startActivity(it) }
+      }
+    }
 }
