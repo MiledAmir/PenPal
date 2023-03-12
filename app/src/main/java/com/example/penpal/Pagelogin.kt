@@ -15,13 +15,12 @@ class Pagelogin : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pagelogin)
 
-
-
-
    val signup =findViewById<TextView>(R.id.signup)
    signup.setOnClickListener{
        Intent(this,pageSignIn::class.java).also{
            startActivity(it) }
+
+
    }
 }
 }
