@@ -12,9 +12,9 @@ class pageSignIn : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_page_sign_in)
 
-    var signin =findViewById<TextView>(R.id.signin)
+    var Signin =findViewById<TextView>(R.id.signin)
 
-        signin.setOnClickListener{
+        Signin.setOnClickListener{
             Intent(this,Pagelogin::class.java).also{
                 startActivity(it)}
         }

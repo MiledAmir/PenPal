@@ -3,7 +3,6 @@ package com.example.penpal
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageView
 
 class HomePenPal : AppCompatActivity() {
