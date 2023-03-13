@@ -150,7 +150,7 @@
         android:drawableLeft="@drawable/google_icon"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="   Continue with Google"
+        android:text="Continue with Google"
         android:textColor="@color/text_clr"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
