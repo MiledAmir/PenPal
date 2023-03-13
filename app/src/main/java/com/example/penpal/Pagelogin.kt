@@ -4,14 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-<<<<<<< HEAD
-=======
 import android.widget.EditText
->>>>>>> d25410e758b186baeccfccfbdcd3716f277a64e8
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+
 
 
 class Pagelogin : AppCompatActivity() {
@@ -40,28 +36,14 @@ class Pagelogin : AppCompatActivity() {
             else{ error.text="The username or password provided in the request are invalid"
                 error.visibility =View.VISIBLE}}
         }
-<<<<<<< HEAD
 
-        // Configure sign-in to request the user's ID, email address, and basic
-// profile. ID and basic profile are included in DEFAULT_SIGN_IN.
-        // Configure sign-in to request the user's ID, email address, and basic
-// profile. ID and basic profile are included in DEFAULT_SIGN_IN.
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestEmail()
-            .build()
-
-        // Build a GoogleSignInClient with the options specified by gso.
-        val mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        val account = GoogleSignIn.getLastSignedInAccount(this)
-
-        val google_connect = findViewById<Button>(R.id.google_connect)
-        google_connect.visibility = View.VISIBLE
-    }
-}
-=======
         signup.setOnClickListener{
             Intent(this, PageSignIn::class.java).also {
                 startActivity(it) } }
-    } }
->>>>>>> d25410e758b186baeccfccfbdcd3716f277a64e8
+    }
+}
+
+
+
+
 
