@@ -4,12 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
-    tools:context=".PageSignIn">
-=======
     android:background="@color/bg_clr"
-    tools:context=".pageSignIn">
->>>>>>> d7544315c8a3ced1ef3ae0f11594405a26e958a9
+    tools:context=".PageSignIn">
 
 
     <ImageView
@@ -123,11 +119,10 @@
         android:id="@+id/pwd_border"
         android:layout_width="312dp"
         android:layout_height="56dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/emailpwd2"
-        app:layout_constraintBottom_toTopOf="@+id/login_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newemail" />
 
@@ -135,22 +130,22 @@
         android:id="@+id/login_btn"
         android:layout_width="wrap_content"
         android:layout_height="56dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/square_button"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
         android:text="Sign in"
         android:textColor="@color/text_clr"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/google_connect"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newpassword" />
 
     <Button
         android:id="@+id/google_connect_signin"
         android:layout_width="322dp"
         android:layout_height="57dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/square_button"
         android:drawableLeft="@drawable/google_icon"
         android:paddingLeft="10dp"
@@ -158,23 +153,25 @@
         android:text="   Continue with Google"
         android:textColor="@color/text_clr"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/sign_in_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_btn" />
 
     <TextView
         android:id="@+id/sign_in_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="55dp"
 
+        android:layout_marginEnd="1dp"
         android:layout_marginBottom="52dp"
         android:text="@string/haveacc"
         android:textColor="@color/text_clr"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/signin"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -182,7 +179,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="44dp"
         android:layout_marginEnd="55dp"
         android:layout_marginBottom="52dp"
         android:text="@string/btn_signin"
@@ -192,9 +188,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/sign_in_text"
-        app:layout_constraintTop_toBottomOf="@+id/google_connect"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toEndOf="@+id/sign_in_text" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
