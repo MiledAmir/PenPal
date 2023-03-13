@@ -40,7 +40,6 @@ class Pagelogin : AppCompatActivity() {
             else{ error.text="The username or password provided in the request are invalid"
                 error.visibility =View.VISIBLE}}
         }
-<<<<<<< HEAD
 
         // Configure sign-in to request the user's ID, email address, and basic
 // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -58,10 +57,8 @@ class Pagelogin : AppCompatActivity() {
         google_connect.visibility = View.VISIBLE
     }
 }
-=======
         signup.setOnClickListener{
             Intent(this, PageSignIn::class.java).also {
                 startActivity(it) } }
     } }
->>>>>>> d25410e758b186baeccfccfbdcd3716f277a64e8
 
