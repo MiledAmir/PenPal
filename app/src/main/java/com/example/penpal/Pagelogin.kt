@@ -4,14 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-<<<<<<< HEAD
-=======
 import android.widget.EditText
->>>>>>> d25410e758b186baeccfccfbdcd3716f277a64e8
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+
 
 
 class Pagelogin : AppCompatActivity() {
@@ -41,6 +37,7 @@ class Pagelogin : AppCompatActivity() {
                 error.visibility =View.VISIBLE}}
         }
 
+<<<<<<< HEAD
         // Configure sign-in to request the user's ID, email address, and basic
 // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         // Configure sign-in to request the user's ID, email address, and basic
@@ -61,4 +58,15 @@ class Pagelogin : AppCompatActivity() {
             Intent(this, PageSignIn::class.java).also {
                 startActivity(it) } }
     } }
+=======
+        signup.setOnClickListener{
+            Intent(this, PageSignIn::class.java).also {
+                startActivity(it) } }
+    }
+}
+
+
+
+
+>>>>>>> 031ab0c6809d08fa04eb8f2531a2537ed726c767
 
