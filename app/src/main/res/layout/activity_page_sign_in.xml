@@ -134,7 +134,7 @@
         android:background="@drawable/square_button"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
-        android:text="Sign in"
+        android:text="Sign Up"
         android:textColor="@color/text_clr"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -142,7 +142,7 @@
         app:layout_constraintTop_toBottomOf="@+id/newpassword" />
 
     <Button
-        android:id="@+id/google_connect_signin"
+        android:id="@+id/google_connect_signun"
         android:layout_width="322dp"
         android:layout_height="57dp"
         android:layout_marginTop="10dp"
