@@ -12,7 +12,7 @@
         android:theme="@style/Theme.PenPal"
         tools:targetApi="31">
         <activity
-            android:name=".pageSignIn"
+            android:name=".PageSignIn"
             android:exported="false" />
         <activity
             android:name=".Pagelogin"

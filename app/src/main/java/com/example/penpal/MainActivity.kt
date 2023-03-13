@@ -13,9 +13,10 @@ class MainActivity : AppCompatActivity() {
 
         val arrow = findViewById<ImageView>(R.id.mainpagearrow)
 
-        arrow.setOnClickListener{
-            Intent(this,HomePenPal::class.java).also{
-                startActivity(it) }
+        arrow.setOnClickListener {
+            Intent(this, HomePenPal::class.java).also {
+                startActivity(it)
+            }
         }
     }
-        }
+}
