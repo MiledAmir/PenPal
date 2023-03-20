@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "127432327849",
+    "project_id": "mydiary-6e564",
+    "storage_bucket": "mydiary-6e564.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:127432327849:android:4665e36d5f19ee23b0dfb8",
+        "android_client_info": {
+          "package_name": "com.example.penpal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "127432327849-imt7p8atoeggriheur29arkvt4km36s9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4aKYCsPLMPeyIpUZORatIyWuKj1crShA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "127432327849-imt7p8atoeggriheur29arkvt4km36s9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
