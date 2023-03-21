@@ -42,46 +42,6 @@ class Pagelogin : AppCompatActivity() {
         googleConnect.setOnClickListener {
             signInGoogle()
         }
-        /*
-        private fun signInGoogle() {
-            val signInIntent = googleSignInClient.signInIntent
-            launcher.launch(signInIntent)
-        }
-
-        private val luncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-                if (result.resultCode == Activity.RESULT_OK) {
-                    val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
-                    handleResults(task)
-                }
-            }
-
-        private fun handleResults(task: Task<GoogleSignInAccount>) {
-            if (task.isSuccessful) {
-                val account: GoogleSignInAccount? = task.result
-                if (account != null) {
-                    updateUI(account)
-                }
-            } else {
-                Toast.makeText(this, task.exception.toString(), Toast.LENGTH_SHORT).show()
-            }
-        }
-
-        private fun updateUI(account: GoogleSignInAccount) {
-            val credential = GoogleAuthProvider.getCredential(account.idToken, null)
-            auth.signInWithCredential(credential).addOnCompleteListener {
-                if (it.isSuccessful) {
-                    val intent: Intent = Intent(this, Homemenu::class.java)
-                    intent.putExtra("email", account.email)
-                    intent.putExtra("name", account.displayName)
-                    startActivity(intent)
-                } else {
-                    Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
-
-         */
-
 
         val signup = findViewById<TextView>(R.id.signup)
         val login = findViewById<Button>(R.id.login_btn)
@@ -154,7 +114,7 @@ class Pagelogin : AppCompatActivity() {
         val credential = GoogleAuthProvider.getCredential(account.idToken, null)
         auth.signInWithCredential(credential).addOnCompleteListener {
             if (it.isSuccessful) {
-                val intent: Intent = Intent(this, Homemenu::class.java)
+                val intent = Intent(this, Homemenu::class.java)
                 intent.putExtra("email", account.email)
                 intent.putExtra("name", account.displayName)
                 startActivity(intent)
