@@ -1,7 +1,10 @@
 package com.example.penpal
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
 
 class Homemenu : AppCompatActivity() {
@@ -13,5 +16,13 @@ class Homemenu : AppCompatActivity() {
         setContentView(R.layout.activity_homemenu)
 
         auth = FirebaseAuth.getInstance()
+        val email = intent.getStringExtra("email")
+        val displayName = intent.getStringExtra("name")
+
+        findViewById<TextView>(R.id.userid).text = email + "\n" + displayName
+        findViewById<Button>(R.id.signout).setOnClickListener {
+            auth.signOut()
+            startActivity(Intent(this, Pagelogin::class.java))
+        }
     }
 }
