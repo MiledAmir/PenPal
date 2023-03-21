@@ -4,9 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
-    tools:context=".Homemenu"/>
-=======
     android:padding="16dp"
     android:background="@color/black"
     tools:context=".Homemenu">
@@ -29,4 +26,4 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
->>>>>>> 65c2a2b3b5a0116f03f4cbec1110b01565bf2ccd
+

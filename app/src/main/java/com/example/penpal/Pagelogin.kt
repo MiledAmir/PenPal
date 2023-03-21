@@ -115,7 +115,7 @@ class Pagelogin : AppCompatActivity() {
                 }
             }
         }
-<<<<<<< HEAD
+
 
         signup.setOnClickListener {
             Intent(this, PageSignIn::class.java).also {
@@ -123,19 +123,21 @@ class Pagelogin : AppCompatActivity() {
             }
         }
 
-=======
+
     }
 
     private fun signInGoogle() {
         val signInIntent = googleSignInClient.signInIntent
         launcher.launch(signInIntent)
     }
-    private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
-            handleResults(task)
+
+    private val launcher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
+                handleResults(task)
+            }
         }
-    }
 
     private fun handleResults(task: Task<GoogleSignInAccount>) {
         if (task.isSuccessful) {
@@ -160,7 +162,7 @@ class Pagelogin : AppCompatActivity() {
                 Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
             }
         }
->>>>>>> 65c2a2b3b5a0116f03f4cbec1110b01565bf2ccd
+
     }
 }
 
@@ -168,12 +170,11 @@ class Pagelogin : AppCompatActivity() {
 
 
 
-<<<<<<< HEAD
 
 
 
 
 
-=======
->>>>>>> 65c2a2b3b5a0116f03f4cbec1110b01565bf2ccd
+
+
 
