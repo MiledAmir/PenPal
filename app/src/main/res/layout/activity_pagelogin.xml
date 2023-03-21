@@ -112,18 +112,17 @@
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/google_connect"
         android:layout_width="322dp"
         android:layout_height="57dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/square_button"
         android:drawableLeft="@drawable/google_icon"
-        android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="Continue with Google"
         android:textColor="@color/text_clr"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
