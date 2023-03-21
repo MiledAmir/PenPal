@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 
-
 class Pagelogin : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,46 +26,37 @@ class Pagelogin : AppCompatActivity() {
         login.setOnClickListener {
             val txtemail = email.text.toString()
             val txtpwd = pwd.text.toString()
-            if (txtemail.trim().isEmpty() || txtpwd.trim().isEmpty()){
-             error.text="Please fill in the blank spaces"
-             error.visibility = View.VISIBLE }
-               else{ if (correctemail == txtemail && correctpwd == txtpwd) {
+            if (txtemail.trim().isEmpty() || txtpwd.trim().isEmpty()) {
+                error.text = "Please fill in the blank spaces"
+                error.visibility = View.VISIBLE
+            } else {
+                if (correctemail == txtemail && correctpwd == txtpwd) {
                     Intent(this, Homemenu::class.java).also {
-                        startActivity(it) } }
-            else{ error.text="The username or password provided in the request are invalid"
-                error.visibility =View.VISIBLE}}
+                        startActivity(it)
+                    }
+                } else {
+                    error.text = "The username or password provided in the request are invalid"
+                    error.visibility = View.VISIBLE
+                }
+            }
         }
 
-<<<<<<< HEAD
-        // Configure sign-in to request the user's ID, email address, and basic
-// profile. ID and basic profile are included in DEFAULT_SIGN_IN.
-        // Configure sign-in to request the user's ID, email address, and basic
-// profile. ID and basic profile are included in DEFAULT_SIGN_IN.
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestEmail()
-            .build()
-
-        // Build a GoogleSignInClient with the options specified by gso.
-        val mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        val account = GoogleSignIn.getLastSignedInAccount(this)
-
-        val google_connect = findViewById<Button>(R.id.google_connect)
-        google_connect.visibility = View.VISIBLE
-    }
-}
-        signup.setOnClickListener{
+        signup.setOnClickListener {
             Intent(this, PageSignIn::class.java).also {
-                startActivity(it) } }
-    } }
-=======
-        signup.setOnClickListener{
-            Intent(this, PageSignIn::class.java).also {
-                startActivity(it) } }
+                startActivity(it)
+            }
+        }
+
     }
 }
 
 
 
 
->>>>>>> 031ab0c6809d08fa04eb8f2531a2537ed726c767
+
+
+
+
+
+
 
