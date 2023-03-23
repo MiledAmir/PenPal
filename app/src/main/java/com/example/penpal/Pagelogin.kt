@@ -8,7 +8,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -54,7 +53,7 @@ class Pagelogin : AppCompatActivity() {
         val correctpwd = "azerty"
 
         signup.setOnClickListener {
-            Intent(this, PageSignIn::class.java).also {
+            Intent(this, PageSignUp::class.java).also {
                 startActivity(it)
             }
         }
