@@ -21,10 +21,11 @@ class Homemenu : AppCompatActivity() {
         setContentView(R.layout.activity_homemenu)
 
         auth = FirebaseAuth.getInstance()
+
         val email = intent.getStringExtra("email")
         val displayName = intent.getStringExtra("name")
 
-        findViewById<TextView>(R.id.userid).text = email + "\n" + displayName
+        findViewById<TextView>(R.id.userid).text = email + displayName
         findViewById<Button>(R.id.signout).setOnClickListener {
             auth.signOut()
             startActivity(Intent(this, Pagelogin::class.java))
