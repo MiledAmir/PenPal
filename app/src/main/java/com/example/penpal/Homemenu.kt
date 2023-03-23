@@ -1,18 +1,15 @@
 package com.example.penpal
 
-<<<<<<< HEAD
+
 import android.graphics.drawable.GradientDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.core.content.ContextCompat
-=======
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.Button
+
 import android.widget.TextView
->>>>>>> 81a2ec7e76cc875bfe17926208d5f0004a6760fb
+
 import com.google.firebase.auth.FirebaseAuth
 
 class Homemenu : AppCompatActivity() {
