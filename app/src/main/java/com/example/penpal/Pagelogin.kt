@@ -17,8 +17,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class Pagelogin : AppCompatActivity() {
+
+    private lateinit var authlogin: FirebaseAuth
 
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
@@ -27,6 +31,10 @@ class Pagelogin : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pagelogin)
 
+        //login
+        authlogin = Firebase.auth
+
+        //GoogleSignIn
         auth = FirebaseAuth.getInstance()
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -42,7 +50,16 @@ class Pagelogin : AppCompatActivity() {
             signInGoogle()
         }
 
+        //login
+        val loginBtn = findViewById<Button>(R.id.login_btn)
+
+        loginBtn.setOnClickListener{
+            performLogin()
+        }
+
+
         val signup = findViewById<TextView>(R.id.signup)
+        /*
         val login = findViewById<Button>(R.id.login_btn)
         val email = findViewById<EditText>(R.id.email)
         val pwd = findViewById<EditText>(R.id.password)
@@ -50,6 +67,7 @@ class Pagelogin : AppCompatActivity() {
 
         val correctemail = "abc@gmail.com"
         val correctpwd = "azerty"
+         */
 
         signup.setOnClickListener {
             Intent(this, PageSignUp::class.java).also {
@@ -57,7 +75,7 @@ class Pagelogin : AppCompatActivity() {
             }
         }
 
-        login.setOnClickListener {
+        /*login.setOnClickListener {
             val txtemail = email.text.toString()
             val txtpwd = pwd.text.toString()
             if (txtemail.trim().isEmpty() || txtpwd.trim().isEmpty()) {
@@ -73,6 +91,7 @@ class Pagelogin : AppCompatActivity() {
                     error.visibility = View.VISIBLE
                 }
             }
+<<<<<<< HEAD
         }
 
 
@@ -83,6 +102,9 @@ class Pagelogin : AppCompatActivity() {
         }
 
 
+=======
+        }*/
+>>>>>>> 8faeee7a57a4307f0b223b1a52ae86c2fcc8b189
     }
 
     private fun signInGoogle() {
@@ -121,6 +143,36 @@ class Pagelogin : AppCompatActivity() {
                 Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
             }
         }
+
+    }
+
+    private fun performLogin(){
+        val email = findViewById<EditText>(R.id.email)
+        val pwd = findViewById<EditText>(R.id.password)
+
+        if (email.text.isEmpty() || pwd.text.isEmpty()){
+            Toast.makeText(this,"Please fill all fields",Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val inputEmail = email.text.toString()
+        val inputPassword = pwd.text.toString()
+
+        auth.signInWithEmailAndPassword(inputEmail, inputPassword)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    val intent = Intent(this, Homemenu::class.java)
+                    startActivity(intent)
+                    Toast.makeText(baseContext, "Success", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT).show()
+                }
+            }
+            .addOnFailureListener{
+                Toast.makeText(baseContext, "Authentication failed${it.localizedMessage} .",
+                    Toast.LENGTH_SHORT).show()
+            }
 
     }
 }
