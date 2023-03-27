@@ -77,7 +77,7 @@ class Pagelogin : AppCompatActivity() {
 
 
         signup.setOnClickListener {
-            Intent(this, PageSignIn::class.java).also {
+            Intent(this, PageSignUp::class.java).also {
                 startActivity(it)
             }
         }
