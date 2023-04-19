@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="title_clr">#41848d</color>
-    <color name="bg_clr">#faf6f3</color>
+    <color name="bg_clr">#fff5ed</color>
     <color name="text_clr">#545454</color>
     <color name="btn_clr">#ffb879</color>
     <color name="btn_pressed_clr"> #ff9c5b</color>

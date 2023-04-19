@@ -4,14 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/bg_clr"
     android:padding="16dp"
     tools:context=".Homemenu">
+
+    <ImageView
+        android:id="@+id/imageView24"
+        android:layout_width="753dp"
+        android:layout_height="216dp"
+        app:srcCompat="@drawable/bloc"
+        tools:layout_editor_absoluteX="-192dp"
+        tools:layout_editor_absoluteY="3dp" />
+
+    <ImageView
+        android:id="@+id/imageView25"
+        android:layout_width="753dp"
+        android:layout_height="216dp"
+        android:layout_marginTop="620dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bloc" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/signout"
         android:layout_width="322dp"
         android:layout_height="57dp"
+        android:layout_marginEnd="16dp"
         android:backgroundTint="@drawable/square_button"
         android:drawableLeft="@drawable/google_icon"
         android:text="Sign Out"
@@ -19,24 +38,42 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/userid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/signout"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/opensans_bold"
+        android:text="Bonjour Mohsen"
+        android:textColor="@color/btn_border_clr"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.592"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="57dp"
+        android:layout_height="69dp"
+        android:layout_marginBottom="628dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/userid"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/pro" />
+
+    <ImageView
+        android:id="@+id/imageView23"
+        android:layout_width="88dp"
+        android:layout_height="76dp"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/pp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
