@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.ImageView
+import android.widget.TextView
 
 
 class MainActivity : AppCompatActivity() {
@@ -12,7 +13,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val arrow = findViewById<ImageView>(R.id.mainpagearrow)
-
         arrow.setOnClickListener {
             Intent(this, HomePenPal::class.java).also {
                 startActivity(it)
