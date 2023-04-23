@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/bg_clr"
     android:padding="16dp"
+    android:id="@+id/main"
+    android:visibility="gone"
     tools:context=".Homemenu">
 
     <ImageView
