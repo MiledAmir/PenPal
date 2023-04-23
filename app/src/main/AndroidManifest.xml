@@ -17,11 +17,7 @@
             android:name=".SplashScreenActivity"
             android:exported="true"
             android:theme="@style/SplashScreenTheme">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
 
         <activity
@@ -42,7 +38,13 @@
         </activity>
         <activity
             android:name=".Homemenu"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".PageSignUp"
             android:exported="false"

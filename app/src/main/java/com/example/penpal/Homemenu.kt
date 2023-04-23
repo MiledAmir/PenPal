@@ -103,6 +103,9 @@ class Homemenu : AppCompatActivity() {
         val displayName = intent.getStringExtra("name")
 
         findViewById<TextView>(R.id.userid).text = email + displayName
+       var userid = findViewById<TextView>(R.id.userid)
+        var name = getIntent().getStringExtra("myname")
+        userid.setText(name)
         findViewById<Button>(R.id.signout).setOnClickListener {
             auth.signOut()
             startActivity(Intent(this, Pagelogin::class.java))
