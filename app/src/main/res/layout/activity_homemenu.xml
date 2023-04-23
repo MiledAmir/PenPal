@@ -12,9 +12,11 @@
         android:id="@+id/imageView24"
         android:layout_width="753dp"
         android:layout_height="216dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/bloc"
-        tools:layout_editor_absoluteX="-192dp"
-        tools:layout_editor_absoluteY="3dp" />
+        tools:layout_editor_absoluteX="-191dp" />
 
     <ImageView
         android:id="@+id/imageView25"
