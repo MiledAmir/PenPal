@@ -18,8 +18,16 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 
+import android.widget.CalendarView
+import android.widget.CalendarView.OnDateChangeListener
+
 class Homemenu : AppCompatActivity() {
 
+    //variable for the calendar
+    lateinit var dateTV: TextView
+    lateinit var calendarView: CalendarView
+
+    //variables for the fingerprint auth
     private lateinit var biometricPrompt: BiometricPrompt
     private lateinit var promptInfo: BiometricPrompt.PromptInfo
     //private lateinit var mMainLayout: ConstraintLayout
@@ -96,7 +104,7 @@ class Homemenu : AppCompatActivity() {
         biometricPrompt.authenticate(promptInfo)
 
         // Grabbing Username & Signout
-
+        /*
         auth = FirebaseAuth.getInstance()
 
         val email = intent.getStringExtra("email")
@@ -109,6 +117,26 @@ class Homemenu : AppCompatActivity() {
         findViewById<Button>(R.id.signout).setOnClickListener {
             auth.signOut()
             startActivity(Intent(this, Pagelogin::class.java))
-        }
+        }*/
+
+        // Calendar ya man
+        dateTV = findViewById(R.id.idTVDate)
+        calendarView = findViewById(R.id.calendarView)
+
+        // on below line we are adding set on
+        // date change listener for calendar view.
+        calendarView.setOnDateChangeListener(
+                OnDateChangeListener{view, year, month, dayOfMonth ->
+                    // In this Listener we are getting values
+                    // such as year, month and day of month
+                    // on below line we are creating a variable
+                    // in which we are adding all the variables in it.
+                    val date = (dayOfMonth.toString() + "-"
+                            + (month + 1) + "-" + year)
+
+                    // set this date in TextView for Display
+                    dateTV.setText(date)
+                })
+
     }
 }

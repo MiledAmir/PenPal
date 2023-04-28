@@ -26,7 +26,7 @@
         android:gravity="center"
         android:text="Penpal is a place where you can confide without fear of judgment, where you can record you most intimate thoughts,feelings and experiences."
         android:textColor="#555E54"
-        android:textSize="20dp"
+        android:textSize="17dp"
         app:layout_constraintBottom_toTopOf="@+id/arrow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

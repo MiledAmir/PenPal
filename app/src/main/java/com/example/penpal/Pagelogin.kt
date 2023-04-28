@@ -124,9 +124,10 @@ class Pagelogin : AppCompatActivity() {
         auth.signInWithEmailAndPassword(inputEmail, inputPassword)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    val intent = Intent(this, Homemenu::class.java)
-                    startActivity(intent)
-                    Toast.makeText(baseContext, "Success", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, Homemenu::class.java)
+                        startActivity(intent)
+                        Toast.makeText(baseContext, "Success", Toast.LENGTH_SHORT).show()
+                        finish();
                 } else {
                     Toast.makeText(baseContext, "Authentication failed.",
                         Toast.LENGTH_SHORT).show()
