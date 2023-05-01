@@ -2,7 +2,6 @@ package com.example.penpal
 
 
 import android.annotation.SuppressLint
-import android.graphics.drawable.GradientDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
@@ -35,8 +34,8 @@ class Homemenu : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var dbref: DatabaseReference
-    private lateinit var userArrayList: ArrayList<User>
-    private lateinit var userRecyclerView: RecyclerView
+    private lateinit var storyIdArrayList: ArrayList<storyId>
+    private lateinit var storyRecyclerView: RecyclerView
 
     @SuppressLint("MissingInflatedId", "SuspiciousIndentation")
     @RequiresApi(api = Build.VERSION_CODES.P)
@@ -145,10 +144,10 @@ class Homemenu : AppCompatActivity() {
 
 
 
-        userRecyclerView = findViewById(R.id.rv)
-        userRecyclerView.layoutManager = LinearLayoutManager(this)
-        userRecyclerView.setHasFixedSize(true)
-        userArrayList = arrayListOf<User>()
+        storyRecyclerView = findViewById(R.id.rv)
+        storyRecyclerView.layoutManager = LinearLayoutManager(this)
+        storyRecyclerView.setHasFixedSize(true)
+        storyIdArrayList = arrayListOf<storyId>()
         getUserData()
 
         val Plus = findViewById<ImageView>(R.id.Plus)
@@ -160,16 +159,16 @@ class Homemenu : AppCompatActivity() {
     }
 
     private fun getUserData() {
-        dbref = FirebaseDatabase.getInstance().getReference("teachers")
+        dbref = FirebaseDatabase.getInstance().getReference("Stories")
         dbref.addValueEventListener(object : ValueEventListener {
 
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     for (userSnapshot in snapshot.children) {
-                        val user = userSnapshot.getValue(User::class.java)
-                        userArrayList.add(user!!)
+                        val storyId = userSnapshot.getValue(storyId::class.java)
+                        storyIdArrayList.add(storyId!!)
                     }
-                    userRecyclerView.adapter = Myadapter(userArrayList)
+                    storyRecyclerView.adapter = Myadapter(storyIdArrayList)
                 }
             }
 

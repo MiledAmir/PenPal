@@ -5,10 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import de.hdodenhof.circleimageview.CircleImageView
 
-class Myadapter(private  val userList :ArrayList<User>) :RecyclerView.Adapter<Myadapter.MyViewHolder>(){
+class Myadapter(private  val storyIdList :ArrayList<storyId>) :RecyclerView.Adapter<Myadapter.MyViewHolder>(){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -17,21 +15,21 @@ class Myadapter(private  val userList :ArrayList<User>) :RecyclerView.Adapter<My
     }
 
     override fun getItemCount(): Int {
-        return userList.size
+        return storyIdList.size
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentitem = userList[position]
-        holder.course.text=currentitem.course
-        holder.email.text=currentitem.email
-        holder.name.text=currentitem.name
+        val currentitem = storyIdList[position]
+        holder.titree.text=currentitem.titree
+        holder.datee.text=currentitem.datee
+        holder.descriptionn.text=currentitem.descriptionn
     }
 
 
     class MyViewHolder(itemView : View):RecyclerView.ViewHolder(itemView){
-        val course :TextView = itemView.findViewById(R.id.coursetext)
-        val email :TextView =itemView.findViewById(R.id.emailtext)
-        val name  : TextView=itemView.findViewById(R.id.nametext)
+        val descriptionn :TextView = itemView.findViewById(R.id.descriptionn)
+        val datee :TextView =itemView.findViewById(R.id.datee)
+        val titree  : TextView=itemView.findViewById(R.id.titree)
 
     }
 
