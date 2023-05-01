@@ -4,6 +4,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_clr_homeP"
     tools:context=".Plusdata">
+
+    <EditText
+        android:id="@+id/titree"
+        android:layout_width="99dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="272dp"
+        android:layout_marginBottom="498dp"
+        android:background="@drawable/rounded_corner"
+        android:fontFamily="@font/opensans_extrabolditalic"
+        android:text="Titre"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/datee"
+        android:layout_width="95dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="257dp"
+        android:layout_marginBottom="532dp"
+        android:background="@drawable/rounded_corner"
+        android:fontFamily="@font/opensans_semibold"
+        android:text="Date"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titree"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/descriptionn"
+        android:layout_width="372dp"
+        android:layout_height="438dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="23dp"
+        android:background="@drawable/rounded_corner"
+        android:fontFamily="@font/opensans_semibold"
+        android:text="Description"
+        android:textAlignment="viewStart"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.703" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="100dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="169dp"
+        android:layout_marginTop="664dp"
+        android:layout_marginEnd="169dp"
+        android:layout_marginBottom="19dp"
+        android:backgroundTint="@color/btn_clr"
+        android:text="ADD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
