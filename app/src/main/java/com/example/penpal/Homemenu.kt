@@ -1,25 +1,26 @@
 package com.example.penpal
 
 
+import android.annotation.SuppressLint
 import android.graphics.drawable.GradientDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import androidx.core.content.ContextCompat
 import android.content.Intent
-import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
 
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import android.os.Build
 import android.view.View
-import android.widget.Toast
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 
-import android.widget.CalendarView
 import android.widget.CalendarView.OnDateChangeListener
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.*
 
 class Homemenu : AppCompatActivity() {
 
@@ -33,7 +34,11 @@ class Homemenu : AppCompatActivity() {
     //private lateinit var mMainLayout: ConstraintLayout
 
     private lateinit var auth: FirebaseAuth
+    private lateinit var dbref: DatabaseReference
+    private lateinit var userArrayList: ArrayList<User>
+    private lateinit var userRecyclerView: RecyclerView
 
+    @SuppressLint("MissingInflatedId", "SuspiciousIndentation")
     @RequiresApi(api = Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -126,17 +131,57 @@ class Homemenu : AppCompatActivity() {
         // on below line we are adding set on
         // date change listener for calendar view.
         calendarView.setOnDateChangeListener(
-                OnDateChangeListener{view, year, month, dayOfMonth ->
-                    // In this Listener we are getting values
-                    // such as year, month and day of month
-                    // on below line we are creating a variable
-                    // in which we are adding all the variables in it.
-                    val date = (dayOfMonth.toString() + "-"
-                            + (month + 1) + "-" + year)
+            OnDateChangeListener { view, year, month, dayOfMonth ->
+                // In this Listener we are getting values
+                // such as year, month and day of month
+                // on below line we are creating a variable
+                // in which we are adding all the variables in it.
+                val date = (dayOfMonth.toString() + "-"
+                        + (month + 1) + "-" + year)
 
-                    // set this date in TextView for Display
-                    dateTV.setText(date)
-                })
+                // set this date in TextView for Display
+                dateTV.setText(date)
+            })
+
+
+
+        userRecyclerView = findViewById(R.id.rv)
+        userRecyclerView.layoutManager = LinearLayoutManager(this)
+        userRecyclerView.setHasFixedSize(true)
+        userArrayList = arrayListOf<User>()
+        getUserData()
+
+        val Plus = findViewById<ImageView>(R.id.Plus)
+        Plus.setOnClickListener {
+            Intent(this, Plusdata::class.java).also {
+                startActivity(it)
+            }
+        }
+    }
+
+    private fun getUserData() {
+        dbref = FirebaseDatabase.getInstance().getReference("teachers")
+        dbref.addValueEventListener(object : ValueEventListener {
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    for (userSnapshot in snapshot.children) {
+                        val user = userSnapshot.getValue(User::class.java)
+                        userArrayList.add(user!!)
+                    }
+                    userRecyclerView.adapter = Myadapter(userArrayList)
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+
+        })
+
 
     }
+
+
 }
