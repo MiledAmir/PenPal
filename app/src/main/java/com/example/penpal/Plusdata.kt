@@ -44,20 +44,27 @@ class Plusdata : AppCompatActivity() {
         val descriptionn = etdescriptionn.text.toString()
 
         if(titreee.isEmpty()){
-            ettitree.error ="Please enter the title" }
+            ettitree.error ="Please enter the title"
+        return}
         if(datee.isEmpty()){
-           etdatee.error="Please entrer the date" }
+           etdatee.error="Please entrer the date"
+        return}
         if(descriptionn.isEmpty()){
-            etdescriptionn.error="Please enter your story" }
+            etdescriptionn.error="Please enter your story"
+        return}
+
         val storiesid=dbRef.push().key!!
+
         val story =storyId(storiesid,titreee,datee,descriptionn)
+
         dbRef.child(storiesid).setValue(story)
             .addOnCompleteListener{
                 Toast.makeText(this,"Data inserted",Toast.LENGTH_LONG).show()
             etdatee.text.clear()
             etdescriptionn.text.clear()
             ettitree.text.clear()
-            }.addOnFailureListener{err ->
+            }
+            .addOnFailureListener{err ->
                 Toast.makeText(this,"Error ${err.message}",Toast.LENGTH_LONG).show()
             }
 

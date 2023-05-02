@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 
@@ -58,9 +59,10 @@ class PageSignUp : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(inputEmail, inputPassword)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
+
+
+
                     val intent = Intent(this, Homemenu::class.java)
-                    intent.putExtra("myname",inputfullname)
                     startActivity(intent)
                     Toast.makeText(baseContext, "Success", Toast.LENGTH_SHORT).show()
                 } else {
