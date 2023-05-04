@@ -8,8 +8,14 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class Plusdata : AppCompatActivity() {
     private lateinit var ettitree: EditText
@@ -18,7 +24,9 @@ class Plusdata : AppCompatActivity() {
     private lateinit var buttonadd: Button
     private lateinit var dbRef: DatabaseReference
     private lateinit var returnn :ImageView
-
+    private lateinit var auth: FirebaseAuth
+    private lateinit var db:FirebaseFirestore
+    private var currentUser: FirebaseUser? = null
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +37,10 @@ class Plusdata : AppCompatActivity() {
         etdatee = findViewById(R.id.datee)
         etdescriptionn = findViewById(R.id.descriptionn)
         buttonadd = findViewById(R.id.buttonadd)
+        auth=Firebase.auth
+        db=Firebase.firestore
+        currentUser=auth.currentUser
+
         dbRef = FirebaseDatabase.getInstance().getReference("Stories")
 
         buttonadd.setOnClickListener() {
@@ -37,11 +49,14 @@ class Plusdata : AppCompatActivity() {
             Intent(this, Homemenu::class.java).also {
                 startActivity(it) } }
     }
-
-    private fun saveStoriesData() {
+   /* if (task.isSuccessful) {
+        db.collection("users").document(currentUser!!.uid).set(user).addOnSuccessListener*/
+        private fun saveStoriesData() {
         val titreee = ettitree.text.toString()
         val datee = etdatee.text.toString()
         val descriptionn = etdescriptionn.text.toString()
+
+
 
         if(titreee.isEmpty()){
             ettitree.error ="Please enter the title"
@@ -53,16 +68,20 @@ class Plusdata : AppCompatActivity() {
             etdescriptionn.error="Please enter your story"
         return}
 
-        val storiesid=dbRef.push().key!!
 
-        val story =storyId(storiesid,titreee,datee,descriptionn)
+       val story= hashMapOf(
+           "titre" to titreee,
+           "date" to datee,
+           "description" to descriptionn)
+       val currentUser = auth.currentUser
 
-        dbRef.child(storiesid).setValue(story)
-            .addOnCompleteListener{
+
+       db.collection("stories").document(currentUser!!.uid).set(story).addOnCompleteListener{
                 Toast.makeText(this,"Data inserted",Toast.LENGTH_LONG).show()
             etdatee.text.clear()
             etdescriptionn.text.clear()
             ettitree.text.clear()
+
             }
             .addOnFailureListener{err ->
                 Toast.makeText(this,"Error ${err.message}",Toast.LENGTH_LONG).show()

@@ -16,62 +16,67 @@ import com.google.firebase.ktx.Firebase
 class PageSignUp : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
-
+    lateinit var fullname: EditText
+    lateinit var newemail: EditText
+    lateinit var newpassword: EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_page_sign_up)
+
+        fullname = findViewById(R.id.fullname)
+        newemail = findViewById(R.id.newemail)
+        newpassword = findViewById(R.id.newpassword)
 
         // Initialize Firebase Auth
         auth = Firebase.auth
 
 
-        val signin = findViewById<TextView>(R.id.signin)
-
-        signin.setOnClickListener {
-            Intent(this, Pagelogin::class.java).also {
-                startActivity(it)
-            }
-        }
-
         val signUpBtn = findViewById<Button>(R.id.signup_btn)
 
-        signUpBtn.setOnClickListener{
-            performSignUp()
-        }
-
-    }
-
-    private fun performSignUp() {
-        val email = findViewById<EditText>(R.id.newemail)
-        val password = findViewById<EditText>(R.id.newpassword)
-        val fullname = findViewById<EditText>(R.id.fullname)
+        signUpBtn.setOnClickListener {
 
 
+            val name = fullname.text.toString()
+            val email = newemail.text.toString()
+            val password = newpassword.text.toString()
 
-        if (email.text.isEmpty() || password.text.isEmpty()){
-            Toast.makeText(this,"Please fill all fields",Toast.LENGTH_SHORT).show()
-            return
-        }
+            if (email.isEmpty() || password.isEmpty() || name.isEmpty()) {
+                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            } else {
+                auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                       val user= hashMapOf(
+                           "fullname" to name,
+                           "email" to email )
 
-        val inputEmail = email.text.toString()
-        val inputPassword = password.text.toString()
-        val inputfullname = fullname.text.toString()
-        auth.createUserWithEmailAndPassword(inputEmail, inputPassword)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
+                        val currentUser = auth.currentUser
+                        val db=Firebase.firestore
+                        db.collection("users").document(currentUser!!.uid).set(user).addOnSuccessListener {
+                            Intent(this, Homemenu::class.java).also {
+                                startActivity(it)
+                                Toast.makeText(baseContext, "Success", Toast.LENGTH_SHORT).show() }
+                        }.addOnFailureListener{
 
+                        }
 
-
-                    val intent = Intent(this, Homemenu::class.java)
-                    startActivity(intent)
-                    Toast.makeText(baseContext, "Success", Toast.LENGTH_SHORT).show()
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                         }
+                    else{ Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show() }
                 }
+                    .addOnFailureListener{
+                        Toast.makeText(this, "Error occured ${it.localizedMessage}",Toast.LENGTH_SHORT).show()
+                    }
             }
-            .addOnFailureListener{
-                Toast.makeText(this, "Error occured ${it.localizedMessage}",Toast.LENGTH_SHORT).show()
-            }
+
+
+            val signin = findViewById<TextView>(R.id.signin)
+
+            signin.setOnClickListener {
+                Intent(this, Pagelogin::class.java).also {
+                    startActivity(it) } }
+
+        }
+
     }
-}
+
+    }
