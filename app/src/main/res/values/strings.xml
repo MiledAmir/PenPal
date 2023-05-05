@@ -4,4 +4,5 @@
     <string name="donthaveacc">You dont have an account ?</string>
     <string name="btn_signin"><u>Sign in</u></string>
     <string name="haveacc">Already have an account ?</string>
+
 </resources>

@@ -6,7 +6,56 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class Myadapter(private  val storyIdList :ArrayList<storyId>) :RecyclerView.Adapter<Myadapter.MyViewHolder>(){
+class Myadapter() :RecyclerView.Adapter<Myadapter.ViewHolder>(){
+
+
+    var items:MutableList<storyId> = mutableListOf()
+           set(value){
+               field=value
+              notifyDataSetChanged()
+           }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+       val itemView =LayoutInflater.from(parent.context).inflate(R.layout.mainitem,parent, false)
+        return ViewHolder(itemView)
+    }
+
+    override fun getItemCount()=items.size
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val storie=items[position]
+        holder.bind(storie)
+    }
+
+    class ViewHolder(itemView :View):RecyclerView.ViewHolder(itemView){
+           val titre:TextView=itemView.findViewById(R.id.titree)
+        val date:TextView=itemView.findViewById(R.id.datee)
+        val description:TextView=itemView.findViewById(R.id.descriptionn)
+        fun bind(storie:storyId){
+            titre.text=storie.titree
+            date.text=storie.datee
+            description.text=storie.descriptionn
+        }
+
+
+    }
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Myadapter(private  val storyIdList :ArrayList<storyId>) :RecyclerView.Adapter<Myadapter.MyViewHolder>(){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -31,8 +80,8 @@ class Myadapter(private  val storyIdList :ArrayList<storyId>) :RecyclerView.Adap
         val datee :TextView =itemView.findViewById(R.id.datee)
         val titree  : TextView=itemView.findViewById(R.id.titree)
 
-    }
+    }}*/
 
-}
+
 
 

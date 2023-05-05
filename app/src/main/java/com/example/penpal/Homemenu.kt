@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import android.os.Build
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
@@ -19,7 +20,12 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import android.widget.CalendarView.OnDateChangeListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class Homemenu : AppCompatActivity() {
 
@@ -31,18 +37,22 @@ class Homemenu : AppCompatActivity() {
     private lateinit var biometricPrompt: BiometricPrompt
     private lateinit var promptInfo: BiometricPrompt.PromptInfo
     //private lateinit var mMainLayout: ConstraintLayout
-
+    private lateinit var db:FirebaseFirestore
     private lateinit var auth: FirebaseAuth
     private lateinit var dbref: DatabaseReference
+    private var currentUser:FirebaseUser? = null
     private lateinit var storyIdArrayList: ArrayList<storyId>
-    private lateinit var storyRecyclerView: RecyclerView
 
+    private lateinit var bienvenue:TextView
+    private lateinit var rv:RecyclerView
+    private lateinit var storieadapter:Myadapter
     @SuppressLint("MissingInflatedId", "SuspiciousIndentation")
     @RequiresApi(api = Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_homemenu)
 
+        rv =findViewById(R.id.rv)
         // FingerPrint Authentication
 
         val mMainLayout = findViewById<ConstraintLayout>(R.id.main)
@@ -93,10 +103,6 @@ class Homemenu : AppCompatActivity() {
                     super.onAuthenticationFailed()
                 }
 
-                /*public fun onBackPressed() {
-                    // Finish the activity and return to the home screen
-                    finish()
-                }*/
             })
 
         promptInfo = BiometricPrompt.PromptInfo.Builder()
@@ -107,21 +113,6 @@ class Homemenu : AppCompatActivity() {
 
         biometricPrompt.authenticate(promptInfo)
 
-        // Grabbing Username & Signout
-        /*
-        auth = FirebaseAuth.getInstance()
-
-        val email = intent.getStringExtra("email")
-        val displayName = intent.getStringExtra("name")
-
-        findViewById<TextView>(R.id.userid).text = email + displayName
-       var userid = findViewById<TextView>(R.id.userid)
-        var name = getIntent().getStringExtra("myname")
-        userid.setText(name)
-        findViewById<Button>(R.id.signout).setOnClickListener {
-            auth.signOut()
-            startActivity(Intent(this, Pagelogin::class.java))
-        }*/
 
         // Calendar ya man
         dateTV = findViewById(R.id.idTVDate)
@@ -131,10 +122,7 @@ class Homemenu : AppCompatActivity() {
         // date change listener for calendar view.
         calendarView.setOnDateChangeListener(
             OnDateChangeListener { view, year, month, dayOfMonth ->
-                // In this Listener we are getting values
-                // such as year, month and day of month
-                // on below line we are creating a variable
-                // in which we are adding all the variables in it.
+
                 val date = (dayOfMonth.toString() + "-"
                         + (month + 1) + "-" + year)
 
@@ -142,13 +130,29 @@ class Homemenu : AppCompatActivity() {
                 dateTV.setText(date)
             })
 
+        bienvenue =findViewById(R.id.userid)
+        auth = Firebase.auth
+        db = Firebase.firestore
+        currentUser = auth.currentUser
+        if (currentUser != null) {
+            db.collection("users").document(currentUser!!.uid).get()
+                .addOnSuccessListener { result ->
+                    if (result != null) {
+                        var user = result.toObject(User::class.java)
+                        user?.let{
+                            user.uuid= currentUser!!.uid
+                            bienvenue.setText(user.fullname)
+                            
+                        }
+                    }
+                } } else {
+       Log.d("HomemenuActivity","No user found")
+        }
 
 
-        storyRecyclerView = findViewById(R.id.rv)
-        storyRecyclerView.layoutManager = LinearLayoutManager(this)
-        storyRecyclerView.setHasFixedSize(true)
-        storyIdArrayList = arrayListOf<storyId>()
-        getUserData()
+
+
+
 
         val Plus = findViewById<ImageView>(R.id.Plus)
         Plus.setOnClickListener {
@@ -156,31 +160,50 @@ class Homemenu : AppCompatActivity() {
                 startActivity(it)
             }
         }
+
+        val logout=findViewById<ImageView>(R.id.logout)
+        logout.setOnClickListener{
+            val auth=Firebase.auth
+            auth.signOut()
+            Intent(this,Pagelogin::class.java).also{
+                startActivity(it) }
+            finish()
+        }
+        val stories = mutableListOf<storyId>()
+        db.collection("stories").document(currentUser!!.uid).get()
+            .addOnSuccessListener {result->
+                if (result != null) {
+                val uuid =result.id
+                val titre=result.getString("titre")
+                val   description=result.getString("description")
+                val   date=result.getString("date")
+            stories.add(storyId(uuid, date?:"",description?:"", titre?:""))
+             }}
+        .addOnFailureListener{exception ->
+            Log.e("Homemenu","erreor",exception)
+        }
+
+
+        val Myadapter= Myadapter()
+
+        rv.apply {
+            layoutManager= LinearLayoutManager(this@Homemenu)
+            adapter= Myadapter
+        }
+        Myadapter.items = stories
     }
 
-    private fun getUserData() {
-        dbref = FirebaseDatabase.getInstance().getReference("Stories")
-        dbref.addValueEventListener(object : ValueEventListener {
-
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    for (userSnapshot in snapshot.children) {
-                        val storyId = userSnapshot.getValue(storyId::class.java)
-                        storyIdArrayList.add(storyId!!)
-                    }
-                    storyRecyclerView.adapter = Myadapter(storyIdArrayList)
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
 
 
-        })
 
 
-    }
+
+
+
 
 
 }
+
+
+
+
