@@ -45,7 +45,7 @@ class Homemenu : AppCompatActivity() {
 
     private lateinit var bienvenue:TextView
     private lateinit var rv:RecyclerView
-    private lateinit var storieadapter:Myadapter
+    private lateinit var Myadapter:Myadapter
     @SuppressLint("MissingInflatedId", "SuspiciousIndentation")
     @RequiresApi(api = Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -169,28 +169,32 @@ class Homemenu : AppCompatActivity() {
                 startActivity(it) }
             finish()
         }
+        Myadapter=Myadapter()
+
+        rv.layoutManager= LinearLayoutManager(this@Homemenu)
+        rv.adapter=Myadapter
         val stories = mutableListOf<storyId>()
-        db.collection("stories").document(currentUser!!.uid).get()
+        db.collection("stories").document().get()
             .addOnSuccessListener {result->
                 if (result != null) {
                 val uuid =result.id
                 val titre=result.getString("titre")
                 val   description=result.getString("description")
                 val   date=result.getString("date")
-            stories.add(storyId(uuid, date?:"",description?:"", titre?:""))
-             }}
+            stories.add(storyId(titre?:"",date?:"", description?:""))
+             }
+                Myadapter.items=stories
+            }
         .addOnFailureListener{exception ->
             Log.e("Homemenu","erreor",exception)
         }
 
 
-        val Myadapter= Myadapter()
 
-        rv.apply {
-            layoutManager= LinearLayoutManager(this@Homemenu)
-            adapter= Myadapter
+
+
         }
-        Myadapter.items = stories
+
     }
 
 
@@ -202,7 +206,7 @@ class Homemenu : AppCompatActivity() {
 
 
 
-}
+
 
 
 

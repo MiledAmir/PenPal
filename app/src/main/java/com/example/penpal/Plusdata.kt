@@ -68,15 +68,16 @@ class Plusdata : AppCompatActivity() {
             etdescriptionn.error="Please enter your story"
         return}
 
-
+       val currentUser = auth.currentUser
        val story= hashMapOf(
            "titre" to titreee,
            "date" to datee,
-           "description" to descriptionn)
-       val currentUser = auth.currentUser
+           "description" to descriptionn,
+           "uidme" to currentUser!!.uid)
 
 
-       db.collection("stories").document(currentUser!!.uid).set(story).addOnCompleteListener{
+
+       db.collection("stories").document().set(story).addOnCompleteListener{
                 Toast.makeText(this,"Data inserted",Toast.LENGTH_LONG).show()
             etdatee.text.clear()
             etdescriptionn.text.clear()
