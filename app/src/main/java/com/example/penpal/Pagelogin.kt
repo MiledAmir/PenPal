@@ -93,6 +93,38 @@ class Pagelogin : AppCompatActivity() {
             Toast.LENGTH_SHORT).show() }
 
     }
+<<<<<<< HEAD
+
+    private fun performLogin(){
+        val email = findViewById<EditText>(R.id.email)
+        val pwd = findViewById<EditText>(R.id.password)
+
+        if (email.text.isEmpty() || pwd.text.isEmpty()){
+            Toast.makeText(this,"Please fill all fields",Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val inputEmail = email.text.toString()
+        val inputPassword = pwd.text.toString()
+
+        auth.signInWithEmailAndPassword(inputEmail, inputPassword)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                        val intent = Intent(this, Homemenu::class.java)
+                        startActivity(intent)
+                        Toast.makeText(baseContext, "Success", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT).show()
+                }
+            }
+            .addOnFailureListener{
+                Toast.makeText(baseContext, "Authentication failed${it.localizedMessage} .",
+                    Toast.LENGTH_SHORT).show()
+            }
+
+=======
+>>>>>>> 49cc43534cacde58d6f8c81000a777afa11bf01f
     }
 
 
